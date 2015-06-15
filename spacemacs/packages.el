@@ -1334,7 +1334,7 @@ Removes the automatic guessing of the initial value based on thing at point. "
             helm-file-cache-fuzzy-match t
             helm-imenu-fuzzy-match t
             helm-lisp-fuzzy-completion t
-            helm-locate-fuzzy-match t
+            ;;helm-locate-fuzzy-match t
             helm-recentf-fuzzy-match t
             helm-semantic-fuzzy-match t
             helm-buffers-fuzzy-matching t)
