@@ -16,12 +16,20 @@
     omnisharp
     ))
 
+(defun my-csharp-mode ()
+  (add-to-list 'company-backends 'company-omnisharp)
+  (omnisharp-mode)
+  (company-mode)
+  (flycheck-mode)
+  (turn-on-eldoc-mode))
+
 (defun csharp/init-omnisharp ()
   ;; Load omnisharp-mode with csharp-mode, this should start the omnisharp server automatically
-  (add-hook 'csharp-mode-hook 'omnisharp-mode)
+  ;;(add-hook 'csharp-mode-hook 'omnisharp-mode)
+  (add-hook 'csharp-mode-hook 'my-csharp-mode)
   (use-package omnisharp
     :defer t
-    :init (push 'company-omnisharp company-backends-csharp-mode)
+    ;;:init (push 'company-omnisharp company-backends-csharp-mode)
     :config (evil-leader/set-key-for-mode 'csharp-mode
               ;; Compile
               "mcc" 'omnisharp-build-in-emacs ;; Only one compile command so use top-level
